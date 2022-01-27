@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_rnd/provider/SimpleProvider.dart';
-import 'package:flutter_rnd/provider/paginvation/PaginationProvider.dart';
+
 import 'package:get/get.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:provider/provider.dart';
@@ -17,7 +16,6 @@ import 'globleNavigation/PageFour.dart';
 import 'globleNavigation/PageOne.dart';
 import 'globleNavigation/PageThree.dart';
 import 'globleNavigation/PageTwo.dart';
-import 'provider/paginvation/PhotoProvider.dart';
 
 void main() {
   runApp(MyApp());
@@ -31,22 +29,15 @@ class MyApp extends StatelessWidget {
     return StreamProvider<InternetConnectionStatus>(
       initialData: InternetConnectionStatus.connected,
       create: (context) => InternetConnectionChecker().onStatusChange,
-      child: MultiProvider(
-        providers: [
-          ChangeNotifierProvider<PhotoProvider>(
-            create: (_) => PhotoProvider(),
-          ),
-        ],
-        builder: (context, child) => GetMaterialApp(
+      child: GetMaterialApp(
+        title: 'Work',
+        debugShowCheckedModeBanner: false,
+        debugShowMaterialGrid: false,
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: const MyHomePage(
           title: 'Work',
-          debugShowCheckedModeBanner: false,
-          debugShowMaterialGrid: false,
-          theme: ThemeData(
-            primarySwatch: Colors.blue,
-          ),
-          home: const MyHomePage(
-            title: 'Work',
-          ),
         ),
       ),
     );
@@ -101,14 +92,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 )),
             ListTile(
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => SimpleProvider()));
-                },
-                title: const Text('Simple Provider')),
-            ListTile(
-                onTap: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => CounterPage()));
                 },
@@ -159,15 +142,6 @@ class _MyHomePageState extends State<MyHomePage> {
                       MaterialPageRoute(builder: (context) => LoginPage()));
                 },
                 title: const Text('Login Call')),
-            ListTile(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              const PaginationProviderPage()));
-                },
-                title: const Text('Listenable Provider')),
             ListTile(
                 onTap: () {
                   Navigator.push(context,
