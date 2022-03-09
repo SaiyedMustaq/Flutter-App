@@ -19,9 +19,12 @@ dependencies:
   http: any
   internet_connection_checker: ^0.0.1+2
   provider: ^6.0.2
+  flutter_lints: ^1.0.0
+  getwidget: ^2.0.4
+  url_launcher: ^5.5.3
 
 dev_dependencies:
-  flutter_lints: ^1.0.0
+
   flutter_test:
     sdk: flutter
 
