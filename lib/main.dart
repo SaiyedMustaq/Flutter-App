@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rnd/videoPlayerApp/VideoPlayerHomePage.dart';
 
 import 'package:get/get.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
@@ -16,6 +17,7 @@ import 'globleNavigation/PageFour.dart';
 import 'globleNavigation/PageOne.dart';
 import 'globleNavigation/PageThree.dart';
 import 'globleNavigation/PageTwo.dart';
+import 'musicPlayerApp/MusicAppHomePage.dart';
 
 void main() {
   runApp(MyApp());
@@ -144,40 +146,20 @@ class _MyHomePageState extends State<MyHomePage> {
                 title: const Text('Login Call')),
             ListTile(
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const PageOne()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => VideoPlayerHomePage()));
                 },
-                title: const Text('Goto Page 1')),
-            ListTile(
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const PageTwo()));
-                },
-                title: const Text('Goto Page 2')),
+                title: const Text('Video Player App')),
             ListTile(
                 onTap: () {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const PageThree()));
+                          builder: (context) => MusicPlayerHomePage()));
                 },
-                title: const Text('Goto Page 3')),
-            ListTile(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const PageFour()));
-                },
-                title: const Text('Goto Page 4')),
-            ListTile(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const PageFive()));
-                },
-                title: const Text('Goto Page 5')),
+                title: const Text('Audio Player App')),
           ],
         ),
       ),
