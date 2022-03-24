@@ -19,7 +19,7 @@ class PaginationController extends GetxController {
   @override
   void onInit() {
     getPagination();
-    generateList();
+    //generateList();
     addItem();
     super.onInit();
   }
@@ -29,11 +29,11 @@ class PaginationController extends GetxController {
       if (scrollController.position.maxScrollExtent ==
           scrollController.position.pixels) {
         getPagination();
-        for (int i = 0; i < 2; i++) {
-          itemLength++;
-          modelList.add(Model(name: (itemLength).toString()));
-          update();
-        }
+        // for (int i = 0; i < 2; i++) {
+        //   itemLength++;
+        //   modelList.add(Model(name: (itemLength).toString()));
+        //   update();
+        // }
       }
     });
   }
@@ -51,8 +51,8 @@ class PaginationController extends GetxController {
     update();
   }
 
-  generateList() async {
-    modelList = List.generate(
-        itemLength, (index) => Model(name: (index + 1).toString()));
-  }
+  // generateList() async {
+  //   modelList = List.generate(
+  //       itemLength, (index) => Model(name: (index + 1).toString()));
+  // }
 }
