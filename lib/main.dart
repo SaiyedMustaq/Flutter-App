@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_rnd/videoPlayerApp/VideoPlayerHomePage.dart';
 
 import 'package:get/get.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
-import 'package:provider/provider.dart';
 
 import 'GetX/CounterPage.dart';
 import 'GetX/GetXApiCall.dart';
@@ -12,12 +10,6 @@ import 'GetX/GetxApiCallTwo.dart';
 import 'GetX/loginCall/LognPage.dart';
 import 'GetX/onlineShop/ui/ProductOverviewPage.dart';
 import 'GetX/shopWitGetX/ui/ShopWithGetXPage.dart';
-import 'globleNavigation/PageFive.dart';
-import 'globleNavigation/PageFour.dart';
-import 'globleNavigation/PageOne.dart';
-import 'globleNavigation/PageThree.dart';
-import 'globleNavigation/PageTwo.dart';
-import 'musicPlayerApp/MusicAppHomePage.dart';
 
 void main() {
   runApp(MyApp());
@@ -28,19 +20,15 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return StreamProvider<InternetConnectionStatus>(
-      initialData: InternetConnectionStatus.connected,
-      create: (context) => InternetConnectionChecker().onStatusChange,
-      child: GetMaterialApp(
+    return GetMaterialApp(
+      title: 'Work',
+      debugShowCheckedModeBanner: false,
+      debugShowMaterialGrid: false,
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const MyHomePage(
         title: 'Work',
-        debugShowCheckedModeBanner: false,
-        debugShowMaterialGrid: false,
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: const MyHomePage(
-          title: 'Work',
-        ),
       ),
     );
   }
@@ -144,22 +132,6 @@ class _MyHomePageState extends State<MyHomePage> {
                       MaterialPageRoute(builder: (context) => LoginPage()));
                 },
                 title: const Text('Login Call')),
-            ListTile(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => VideoPlayerHomePage()));
-                },
-                title: const Text('Video Player App')),
-            ListTile(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => MusicPlayerHomePage()));
-                },
-                title: const Text('Audio Player App')),
           ],
         ),
       ),
